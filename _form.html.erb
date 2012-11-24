@@ -1,0 +1,48 @@
+<div class="main">
+<%= form_for(@sm, :html => {:multipart => true}) do |f| %>
+  <% if @sm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sm.errors.count, "error") %> prohibited this sm from being saved:</h2>
+
+      <ul>
+      <% @sm.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  Date and Time:<strong><%= Time.now.strftime("%m/%d/%Y") %>
+<%= Time.now.in_time_zone("Central Time (US & Canada)").to_s.split(" ").second %></strong>
+ <br>IP address:<strong><%= request.remote_ip %></strong>
+<div>
+ <div class="hello">
+ <div class="field">
+    <%= f.label :Mobile_no %><br />
+    <%= f.text_field :Mobile_no %>
+  </div>
+  <div class="field">
+    <%= f.label :Nickname %><br />
+   <%= f.text_field :Nickname %>
+</div>
+  <div class="field">
+    <%= f.label :Templates %><br />
+    <%= f.text_field :Templates %>
+  </div>
+  <div class="field">
+    <%= f.label :Messages %><br />
+    <%= f.text_area :Messages %>
+    </div>
+   <div>
+  <p>
+    <label>BULKSMS</label>
+        <%= image_tag(@sm.image_url) if @sm.image? %>
+        <%= f.file_field :image %>
+      </p>
+    </div> 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</div>
+</div>
+</div>
+<% end %>

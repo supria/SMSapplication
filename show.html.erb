@@ -1,0 +1,25 @@
+<div class="main">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Mobile no:</b>
+  <%= @sm.Mobile_no %>
+</p>
+
+<p>
+  <b>Nickname:</b>
+  <%= @sm.Nickname %>
+</p>
+
+<p>
+  <b>Templates:</b>
+  <%= @sm.Templates %>
+</p>
+
+<p>
+  <b>Messages:</b>
+  <%= @sm.Messages %>
+</p>
+<%= link_to 'Edit', edit_sm_path(@sm) %> |
+<%= link_to 'Back', sms_path %>
+</div>

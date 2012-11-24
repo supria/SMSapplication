@@ -1,0 +1,29 @@
+<div class="main">
+<h1>SENT ITEMS</h1>
+
+<table>
+  <tr>
+    <th>Mobile no</th>
+    <th>Nickname</th>
+    <th>Templates</th>
+    <th>Messages</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sms.each do |sm| %>
+  <tr>
+    <td><%= sm.Mobile_no %></td>
+    <td><%= sm.Nickname %></td>
+    <td><%= sm.Templates %></td>
+    <td><%= sm.Messages %></td>
+    <td><%= link_to 'Show', sm %></td>
+    <td><%= link_to 'Edit', edit_sm_path(sm) %></td>
+    <td><%= link_to 'Destroy', sm, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'New Sm', new_sm_path %>
+</div>
